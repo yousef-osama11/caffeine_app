@@ -22,8 +22,8 @@ import androidx.compose.ui.unit.dp
 import com.example.caffeine.R
 
 @Composable
-fun HomeAppBar(onClickButton: () -> Unit = {}){
-    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+fun HomeAppBar(modifier: Modifier = Modifier,onClickButton: () -> Unit = {}){
+    Row(modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
         Image(painter = painterResource(R.drawable.ghost_profile), contentDescription = "profile icon")
         Spacer(modifier = Modifier.weight(1f))
         Box(modifier = Modifier.clip(CircleShape).background(color = Color(0xFFF5F5F5)).clickable { onClickButton() }, contentAlignment = Alignment.Center){
