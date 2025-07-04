@@ -25,19 +25,25 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.NavController
+import com.example.caffeine.CoffeeSelectionScreen
 import com.example.caffeine.R
+import com.example.caffeine.Screen
 import com.example.caffeine.presentation.component.CaffeineButton
 import com.example.caffeine.presentation.component.HomeAppBar
 import com.example.caffeine.presentation.component.HomeIntroText
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     Column(
         Modifier
             .padding(horizontal = 12.dp)
             .padding(top = 56.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+
         val infiniteTransition = rememberInfiniteTransition()
 
         HomeAppBar(onClickButton = {})
@@ -107,15 +113,15 @@ fun HomeScreen() {
         CaffeineButton(
             text = "bring my coffee",
             imageId = R.drawable.coffee_02,
-            onClick = {},
+            onClick = { navController.navigate(CoffeeSelectionScreen(name = "joe" , age = "20")) },
             modifier = Modifier.padding(bottom = 50.dp)
         )
 
     }
 }
 
-@Preview(showSystemUi = true, showBackground = true)
-@Composable
-fun PreviewHomeScreen() {
-    HomeScreen()
-}
+//@Preview(showSystemUi = true, showBackground = true)
+//@Composable
+//fun PreviewHomeScreen() {
+//    HomeScreen()
+//}
